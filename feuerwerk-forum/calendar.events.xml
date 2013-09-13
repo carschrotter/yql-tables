@@ -15,7 +15,7 @@
       <execute>
 <![CDATA[
     function getFormattedDate(date) {
-        var str = parseInt( date.getFullYear() ) + "-" + parseInt( date.getMonth() ) + "-" + parseInt( date.getDate() )
+        var str = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate()
         return str;
     }
     calendar = calendar || 1;
