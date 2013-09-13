@@ -23,7 +23,7 @@
     calendar = calendar || 1;
     var query = null, d = null, url = '', xpath='/html/body/div/div/div/div/form';
     y.log(date);
-    if (date) { d =  new Date(date, "yyyy-mm-dd"); }
+    if (date) { d =  Date.parse(date); }
     else { d = new Date(); }
     y.log(d);
     url = 'http://www.feuerwerk-forum.de/calendar.php?do=getinfo&day=' + getFormattedDate(d) + '&c=' + calendar;
