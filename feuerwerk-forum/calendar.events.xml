@@ -14,11 +14,17 @@
     </inputs>
       <execute>
 <![CDATA[
-   calendar = calendar || 1;
-   var query = null, url = '', xpath='/html/body/div/div/div/div/form';
-   url = 'http://www.feuerwerk-forum.de/calendar.php?do=getinfo&day=2013-9-3&c=' + calendar;
-   query = y.query("select * from html where url=@url and xpath=@xpath",{url:url, xpath:xpath});
-   response.object = query.results;
+    function getFormattedDate(date) {
+        var str = (int) date.getFullYear() + "-" + (int) date.getMonth() + "-" + (int) date.getDate()
+        return str;
+    }
+    calendar = calendar || 1;
+    var query = null, d = null, url = '', xpath='/html/body/div/div/div/div/form';
+    if (date) { d = new Date(date); }
+    else { d = new Date(); }
+    url = 'http://www.feuerwerk-forum.de/calendar.php?do=getinfo&day=' + getFormattedDate(d) + '&c=' + calendar;
+    query = y.query("select * from html where url=@url and xpath=@xpath",{url:url, xpath:xpath});
+    response.object = query.results;
 ]]>
     </execute>
     </select>
