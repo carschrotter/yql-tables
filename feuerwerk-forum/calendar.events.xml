@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <table xmlns="http://query.yahooapis.com/v1/schema/table.xsd">
-  <meta>
-    <sampleQuery>select * from {table} where url="www.yahoo.com" and css="#news a"</sampleQuery>
-  </meta>
-  <bindings>
-  <select itemPath="" produces="XML">
-    <urls>
-      <url></url>
-    </urls>
-    <inputs>
-      <key id="date" as="date" type="xs:string" paramType="variable" required="false" />
-      <key id="calendar" as="calendar" type="xs:integer" paramType="variable" required="false"/>
-    </inputs>
-      <execute>
+    <meta>
+        <sampleQuery>select * from {table}</sampleQuery>
+        <sampleQuery>select * from {table} where date="2013-09-13"</sampleQuery>
+    </meta>
+    <bindings>
+        <select itemPath="" produces="XML">
+            <urls>
+                <url></url>
+            </urls>
+            <inputs>
+                <key id="date" as="date" type="xs:string" paramType="variable" required="false" />
+                <key id="calendar" as="calendar" type="xs:integer" paramType="variable" required="false"/>
+            </inputs>
+            <execute>
 <![CDATA[
     function getFormattedDate(date) {
         var str = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate()
@@ -26,7 +27,7 @@
     query = y.query("select * from html where url=@url and xpath=@xpath",{url:url, xpath:xpath});
     response.object = query.results;
 ]]>
-    </execute>
-    </select>
-  </bindings>
+            </execute>
+        </select>
+    </bindings>
 </table>
