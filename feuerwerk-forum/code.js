@@ -1,6 +1,6 @@
 window = {};
 y.include("https://datejs.googlecode.com/files/date.js");
-y.include("https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js");
+y.include("https://raw.github.com/coolaj86/node-jquery/master/lib/node-jquery.js");
 function getFormattedDate(date) {
     var str = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate()
     return str;
