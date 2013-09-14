@@ -21,17 +21,37 @@ if (!Function.prototype.bind) {
     return fBound;
   };
 }
-Object.prototype.forEach = function(callback /*, thisp*/)
-{
-    if (typeof callback !== "function") {
-        throw new TypeError();
-    }
-    var thisp = arguments[1] || this;
-    var interCallback = callback.bind(thisp);
-    
-    for (var key in this) {
-        if (key in this) {
-            interCallback.call(this[key], key, this);
+if (!Object.prototype.forEach) {
+    Object.prototype.forEach = function(callback /*, thisArg */)
+    {
+        if (typeof callback !== "function") {
+            throw new TypeError();
         }
-    }
-};
+        var thisArg = arguments[1] || this;
+        var interCallback = callback.bind(thisArg);
+
+        for (var key in this) {
+            if (key in this) {
+                interCallback.call(this[key], key, this);
+            }
+        }
+    };
+}
+if (!Array.prototype.forEach) {
+    Array.prototype.forEach = function(callback /*, thisArg*/)
+    {
+        if (typeof callback !== "function") {
+            throw new TypeError();
+        }
+
+        var thisArg = arguments[1] || this;
+        var interCallback = callback.bind(thisArg);
+
+        for (var i = 0; i < this.length; i++)
+        {
+            if (i in this) {
+                interCallback.call(this[key], key, this);
+            }
+        }
+    };
+}
