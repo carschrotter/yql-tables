@@ -16,7 +16,6 @@
             <execute>
 <![CDATA[
     y.include("https://datejs.googlecode.com/files/date.js");
-    y.include("https://raw.github.com/carschrotter/yql-tables/master/js/helper.js");
     y.include("https://raw.github.com/carschrotter/yql-tables/master/feuerwerk-forum/code.js");
 ]]>
             </execute>
