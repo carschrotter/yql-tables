@@ -17,7 +17,8 @@ url = 'http://www.feuerwerk-forum.de/calendar.php?do=getinfo&day=' + getFormatte
 query = y.query("select * from html where url=@url and xpath=@xpath", {url: url, xpath: xpath});
 var results = <events></events>;
 query.results.forEach(function(value, index) {
-    y.log(value, index);
+    y.log(value);
+    y.log(index);
 //    var form = value.form;
 //    form.input.forEach(function(v, i) {
 //        if(v.name ='') {};
