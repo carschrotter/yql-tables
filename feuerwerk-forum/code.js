@@ -16,11 +16,11 @@ y.log(d);
 url = 'http://www.feuerwerk-forum.de/calendar.php?do=getinfo&day=' + getFormattedDate(d) + '&c=' + calendar;
 query = y.query("select * from html where url=@url and xpath=@xpath", {url: url, xpath: xpath});
 var results = <events></events>;
-query.results.forEach(function(value, index) {
+query.results.Each(function(value, index) {
     y.log(value);
     y.log(index);
 //    var form = value.form;
-//    form.input.forEach(function(v, i) {
+//    form.input.Each(function(v, i) {
 //        if(v.name ='') {};
 //    }
     results.appendChild( <event><number>{index}</number><place></place><value>{value}</value></event> );
