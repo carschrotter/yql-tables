@@ -20,8 +20,8 @@ var results = <events></events>;
 query.results.forEach(function(index, value) {
     y.log(value);
     var form = value.results.form;
-    form.forEach(function(i, v) {
-    
+    form.input.forEach(function(i, v) {
+        if(v.name ='') {};
     }
     results.appendChild( <event><number>{index}</number><place></place><value>{value}</value></event> );
 });
