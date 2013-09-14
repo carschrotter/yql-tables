@@ -1,5 +1,4 @@
-y.include("https://raw.github.com/carschrotter/yql-tables/master/js/helper.js");
-y.include("https://datejs.googlecode.com/files/date.js");
+
 function getFormattedDate(date) {
     var str = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate()
     return str;
