@@ -1,22 +1,54 @@
+console = console || {
+	info: 	function () {},
+	log: 	function () {
+		for each(var item in arguments) {
+			y.log(item);
+		}
+	},
+	debug: 	function () {},
+	warn: 	function () {},
+	error: 	function () {}
+};
+
 function getFormattedDate(date) {
         var str = date.getFullYear() + "-" + (parseInt(date.getMonth())+1) + "-" + date.getDate()
         return str;
 }
+
+//trim the String
 if (!String.prototype.trim) {
    String.prototype.trim=function(){return this.replace(/^\s+|\s+$/g, '');};
 }
 String.prototype.ltrim=function(){return this.replace(/^\s+/,'');};
-
 String.prototype.rtrim=function(){return this.replace(/\s+$/,'');};
-
 String.prototype.fulltrim=function(){return this.replace(/(?:(?:^|\n)\s+|\s+(?:$|\n))/g,'').replace(/\s+/g,' ');};
 
-var results = null, regex = {}, query = null, d = null, url = '', xpath = '/html/body/div/div/div/div/form', baseURL = 'http://www.feuerwerk-forum.de';
+var results = null, 
+	regex = {}, 
+	query = null, 
+	d = null, 
+	url = '', 
+	xpath = '/html/body/div/div/div/div/form', 
+	baseURL = 'http://www.feuerwerk-forum.de';
+	
+//regex title	
 regex.title = {};
 regex.title.place = '\\[(.*?)\\]'; // place
 regex.title.ws = '(\\s+)'; // White Space 1
 regex.title.name = '(.*)'; // event name
-regex.title.p = new RegExp(regex.title.place + regex.title.ws + regex.title.name, ["i"]);
+regex.title.p = new RegExp(regex.title.place + regex.title.ws + regex.title.name, ['i']);
+//regex clock
+regex.clock.p = /(((?:2[0-3]||(([0-9]||0[0-9])||1[0-9]))))(:||\\.)([0-5][0-9])/i;
+regex.clock.getClock = function(str) {
+	console.log(this);
+	var results = this.clock.p.exec(str);
+	return {
+		time: (parseInt(results[1]) + ':' + parseInt(results[6])), 
+		h: results[1], 
+		m: results[6]
+	};
+}
+//select the calendar -- 1 default germany
 calendar = calendar || 1;
 if (date) {
     d = Date.parse(date);
@@ -64,11 +96,11 @@ if(resultObj.results) {
         }
        
         //time = item.table.tr[3].td.div[2].p;
-        for (var key in item.input) {
-            if(item.input[key].name == 'e') {
-                itemID = item.input[key].value;
+        for each(var input in item.input) {
+            if(input.name == 'e') {
+                itemID = input.value;
             }
-        }
+        }-l
 
 
         var m = regex.title.p.exec(itemTitle);
