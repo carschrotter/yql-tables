@@ -9,7 +9,7 @@
                 <url></url>
             </urls>
             <inputs>
-                <key id="id" as="key" type="xs:string" paramType="variable" required="true" />
+                <key id="id" type="xs:string" paramType="variable" required="true" />
             </inputs>
             <execute>
 <![CDATA[

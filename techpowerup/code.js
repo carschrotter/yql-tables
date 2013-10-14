@@ -23,8 +23,8 @@ var validation = null,
 	xpath = '//*[@id="page"]/div[1]/article/div/table/tbody/tr', 
 	baseURL = 'http://www.techpowerup.com/gpuz';
 
-if (key) {
-    url = baseURL + key + '/';
+if (id) {
+    url = baseURL + id + '/';
 }
 
 query = y.query("select * from html where url=@url and xpath=@xpath", {url: url, xpath: xpath});
