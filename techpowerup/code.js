@@ -21,7 +21,7 @@ var validation = null,
 	d = null, 
 	url = '', 
 	xpath = '//*[@id="page"]/div[1]/article/div/table/tbody/tr', 
-	baseURL = 'http://www.techpowerup.com/gpuz';
+	baseURL = 'http://www.techpowerup.com/gpuz/';
 
 if (id) {
     url = baseURL + id + '/';
