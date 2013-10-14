@@ -27,7 +27,7 @@ if (id) {
     url = baseURL + id + '/';
 }
 
-query = y.query("select * from html where url=@url and xpath=@xpath", {url: url, xpath: xpath});
+query = y.query("select * from html where url=@url and xpath=@xpath and compat=@compat", {url: url, xpath: xpath, compat: 'html5'});
 var resultObj = y.xmlToJson(query.results);
 if (resultObj.results) {
     validation = <validation></validation>;
