@@ -1,4 +1,4 @@
-console = console || {
+var console = console || {
 	info: 	function () {},
 	log: 	function () {
 		for each(var item in arguments) {
