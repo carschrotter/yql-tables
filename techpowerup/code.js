@@ -37,7 +37,7 @@ if (resultObj.results) {
         	
             var coldData = Array.isArray(rows[name]) ?  rows[name] : [rows[name]];
             for (var i in coldData) {
-	            var value = value[i].toString().trim();
+	            var value = coldData[i].toString().trim();
 	            if (name == 'th') {
 	                datal[i] = <data><key>{value}</key></data>;
 	                validation.appendChild(datal[i]);
