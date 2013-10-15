@@ -31,15 +31,21 @@ query = y.query("select * from html where url=@url and xpath=@xpath and compat=@
 var resultObj = y.xmlToJson(query.results);
 if (resultObj.results) {
     validation = <validation></validation>;
-    var data = <data></data>;
-    for (var name in resultObj.results) {
-	var coldData = resultObj.results[name].toString().trim();
-	if (name == 'th') {
-	    data = <data><key>{coldData}</key></data>;
-	    validation.appendChild(data);
-	} else {
-	    data.appendChild(<value>{coldData}</value>);
-	}
+    var data = [<data></data>, <data></data>];
+    for each (var rows in resultObj.results.tr) {
+        for (var name in rows) {
+        	
+            var coldData = Array.isArray(rows[name]) ?  rows[name] : [rows[name]];
+            for (var i in coldData) {
+	            value = value[i].toString().trim();
+	            if (name == 'th') {
+	                datal[i] = <data><key>{value}</key></data>;
+	                validation.appendChild(datal[i]);
+	            } else {
+	                data[i].appendChild(<value>{value}</value>);
+	            }
+            }
+        }
     }
 }
 
