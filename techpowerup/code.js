@@ -39,8 +39,8 @@ if (resultObj.results) {
             for (var i in coldData) {
 	            var value = coldData[i].toString().trim();
 	            if (name == 'th') {
-	                datal[i] = <data><key>{value}</key></data>;
-	                validation.appendChild(datal[i]);
+	                data[i] = <data><key>{value}</key></data>;
+	                validation.appendChild(data[i]);
 	            } else {
 	                data[i].appendChild(<value>{value}</value>);
 	            }
