@@ -35,9 +35,9 @@ if (resultObj.results) {
     for each (var rows in resultObj.results.tr) {
         for (var name in rows) {
         	
-            var coldData = Array.isArray(rows[name]) ?  rows[name] : [rows[name]];
-            for (var i in coldData) {
-	            var value = coldData[i].toString().trim();
+            var colData = Array.isArray(rows[name]) ?  rows[name] : [rows[name]];
+            for (var i in colData) {
+	            var value = (colData[i].content) ? colData[i].content.toString().trim() : colData[i].toString().trim();
 	            if (name == 'th') {
 	                data[i] = <data><key>{value}</key></data>;
 	            } else {
