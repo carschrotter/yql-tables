@@ -40,10 +40,10 @@ if (resultObj.results) {
 	            var value = coldData[i].toString().trim();
 	            if (name == 'th') {
 	                data[i] = <data><key>{value}</key></data>;
-	                validation.appendChild(data[i]);
 	            } else {
-                        console.log(value);
 	                data[i].appendChild(<value>{value}</value>);
+                        console.log(data[i]);
+                        validation.appendChild(data[i]);
 	            }
             }
         }
