@@ -42,6 +42,7 @@ if (resultObj.results) {
 	                data[i] = <data><key>{value}</key></data>;
 	                validation.appendChild(data[i]);
 	            } else {
+                        console.log(value);
 	                data[i].appendChild(<value>{value}</value>);
 	            }
             }
